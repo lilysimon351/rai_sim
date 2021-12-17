@@ -1,0 +1,523 @@
+@import vars
+@import btn_mixin
+*, *::after, *::before
+    box-sizing: border-box
+    position: relative
+    margin: 0
+    padding: 0
+body
+    font: 400 18px/21px 'Gilda Display', sans
+    color: $black
+    background: $white
+i,
+a,
+a:hover
+    color: inherit
+a
+    text-decoration: none
+img
+    height: 100%
+    width: 100%
+    object-fit: cover
+
+input[type=text]::-ms-clear
+    display: none
+    width: 0
+    height: 0
+input[type=text]::-ms-reveal
+    display: none
+    width: 0
+    height: 0
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration
+    display: none
+
+ul li, ol li
+    list-style: none
+
+h2
+    font-size: 24px
+    line-height: 28px
+    text-align: center
+    margin-bottom: 40px
+    &::after
+        content: ""
+        max-width: 350px
+        width: 100%
+        height: 0
+        border-bottom: 1px solid $mauve
+        display: block
+        margin: 0 auto
+        bottom: -5px
+
+.btn
+    +btn()
+    +btn_hover()
+
+    &--mauve
+        +btn($mauve, $white, $mauve)
+        +btn_hover(transparent, $black)
+    &--colorless
+        +btn(transparent, $black-light, $black-light)
+        +btn_hover($black-light, $white)
+        &::before
+            content: ""
+            width: 100%
+            height: 100%
+            position: absolute
+            top: 0
+            left: 0
+            box-shadow: 0px 4px 4px rgba($black, 0.25)
+    &--small
+        min-width: 80px
+        font-size: 16px
+        line-height: 19px
+        padding: 3px 20px
+
+.visually-hidden
+    position: absolute
+    margin: 0
+    padding: 0
+    height: 1px
+    width: 1px
+    border: none
+    margin: -1px
+    opacity: 0
+    visibility: hidden
+    line-height: 0
+.container
+    max-width: 1200px
+    width: 100%
+    padding: 0 15px
+    margin: 0 auto
+section,
+.section
+    padding: 50px 0 30px
+.home-page
+    overflow: hidden
+    padding-bottom: 65px
+/* header  */
+.header
+    color: $white
+    background-color: $mauve
+    padding: 30px 15px 10px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+.logo
+    width: 158px
+    display: block
+.form
+    width: 100%
+    .input--search,
+    &__input
+        background: rgba($white, 0.5)
+        border-radius: 10px
+        border: none
+        font-size: 17px
+        line-height: 22px
+        letter-spacing: -0.408px
+        color: $black-input
+        height: 36px
+        width: 100%
+        padding: 7px 30px
+        outline: none
+        transition: $duration
+        &:focus
+            box-shadow: 0 1px 3px rgba($white, 0.5)
+    &__submit
+        background: none
+        border: none
+        color: $black-input
+        font-size: 15px
+        height: 100%
+        width: 30px
+        line-height: 100%
+        text-align: center
+        position: absolute
+        left: 0
+        top: 0
+        cursor: pointer
+        outline: none
+.nav
+    display: none
+    background: $desert
+    width: 100%
+    height: 100vh
+    padding: 30px 15px
+    position: fixed
+    top: 0
+    left: 0
+    color: $black
+    a
+        display: block
+        padding: 7px 0
+    &__icon
+        display: none
+.nav-list
+    position: fixed
+    left: 0
+    bottom: 0
+    width: 100%
+    background: $white
+    color: $black-light
+    font-size: 10px
+    line-height: 12px
+    display: flex
+    box-shadow: 0px -0.5px 0px rgba($black, 0.3)
+    z-index: 10
+    a
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        padding: 7px 0 20px
+    i
+        font-size: 20px
+        display: block
+        margin-bottom: 5px
+    &__item
+        width: calc(100% / 5)
+        transition: $duration
+        &:nth-child(2)
+            display: none
+        &-active,
+        &:hover
+
+            color: $mauve
+
+/* advantages */
+.adv
+    $padding: 40px
+    padding: 0
+    &__slider
+        height: $padding + 300px
+        padding-bottom: $padding
+    .container
+        padding: 0
+    &__slide,
+    &__slide:nth-child(1)
+        background: url(../pics/s1/slide_1.png) center/cover no-repeat
+    &__slide
+        &::before
+            content: ""
+            background: rgba($beige, 0.7)
+            position: absolute
+            top: 0
+            left: 0
+            bottom: 0
+            right: 0
+        &::after
+            content: ""
+            width: 40px
+            height: 40px
+            background: url(../pics/s1/watermark.png) center/cover no-repeat
+            position: absolute
+            right: 15px
+            bottom: 15px
+
+    &__inner
+        text-align: center
+        padding: 20px 0
+
+.swiper-pagination-bullet
+    background-color: $mauve
+.swiper-pagination-bullet-active
+    box-shadow: 0px 4px 4px rgba($black, 0.25)
+
+/* product and sale */
+.product
+    &__list
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: stretch
+        margin-left: -15px
+        margin-right: -15px
+    &__item
+        max-width: 350px
+        width: 100%
+        margin: 15px
+        box-shadow: 0px 4px 4px rgba($black, 0.25)
+    &__banner
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        min-height: 50px
+        display: flex
+        justify-content: space-between
+        align-items: stretch
+        z-index: 1
+        background: rgba($white, 0.25)
+    &__sale
+        font-size: 36px
+        line-height: 42px
+        text-align: center
+        color: $white
+        padding: 3px 10px
+        background-color: $mauve
+    &__favorit
+        padding: 3px 10px
+        font-size: 35px
+        color: $mauve
+        align-self: center
+        cursor: pointer
+        i:not(.product__heart-default)
+            display: none
+    &__img
+        height: 250px
+    &__body
+        padding: 24px 12px
+        background: $beige-dark
+        color: rgba($black, 0.8)
+    &__info
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        align-items: flex-start
+    &__title
+        font-size: 18px
+        line-height: 21px
+        margin-bottom: 30px
+        order: 3
+    &__descr
+        order: 1
+        font-size: 12px
+        line-height: 14px
+        margin-bottom: 12px
+    &__color-list
+        order: 2
+        margin-bottom: 12px
+        display: flex
+        justify-content: flex-start
+        align-items: center
+    &__color
+        display: block
+        width: 25px
+        height: 25px
+        margin-right: 8px
+        border-radius: 3px
+        color: $desert
+        cursor: pointer
+        transition: $duration
+        &:hover
+            opacity: 0.7
+    &__input:checked + &__color::before
+        content: ""
+        width: 100%
+        height: 1px
+        background: $black-light
+        position: absolute
+        bottom: -4px
+        left: 0
+    &__btn-add
+        font-size: 26px
+        cursor: pointer
+    &__price-wr
+        order: 4
+        font-size: 18px
+        line-height: 21px
+        margin-bottom: 25px
+    &__price
+        font-size: 14px
+        line-height: 16px
+        margin-left: 10px
+    &__more
+        margin-top: 40px
+
+/* new product */
+.new
+    &__girl,
+    &__product
+        display: none
+    &__text
+        background: $desert
+        width: 100%
+        padding: 40px 15px 30px
+        p
+            font-size: 35px
+            line-height: 48px
+            color: rgba($black-light, 0.8)
+            margin: 0 auto
+    &__btn
+        margin-top: 15px
+        text-shadow: 0px 4px 4px rgba($black, 0.25)
+/* gift */
+.gift
+    &__list
+        display: flex
+        flex-wrap: wrap
+    &__item
+        background: $desert
+        overflow: hidden
+        margin: 0 auto 20px
+        box-shadow: 0px 4px 4px rgba($black, 0.25)
+        max-width: 590px
+        width: 100%
+        &:first-child
+            display: flex
+            flex-wrap: wrap
+            justify-content: center
+            align-items: stretch
+        &:last-child
+            padding: 20px 15px
+            background: url(../pics/s4/gift_bg.png) center bottom/cover no-repeat
+    &__collection
+        max-height: 320px
+        width: 100%
+    &__text
+        background: $white
+        padding: 40px 15px 25px
+        margin: 20px 15px
+    .big
+        font-size: 24px
+        line-height: 28px
+        margin-bottom: 15px
+    .small
+        font-size: 18px
+        line-height: 21px
+    .big-mauve
+        font-size: 26px
+        line-height: 31px
+        color: $mauve
+    &__btn
+        margin-top: 30px
+    &__card
+        max-width: 317px
+        height: auto
+        margin: 0 auto
+        display: block
+        &-text
+            font-size: 24px
+            line-height: 28px
+            text-align: center
+            margin: 15px 0
+/* free */
+.free
+    &__inner
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        align-items: center
+        &::before
+            content: ""
+            width: 100vw
+            height: 100%
+            position: absolute
+            top: 0
+            left: 0
+            background: $desert
+            filter: blur(150px)
+    &__points
+        font-size: 20px
+        line-height: 25px
+        margin-bottom: 30px
+        p
+            margin: 25px 0 40px
+    &__formula
+        background: $white
+        font-size: 26px
+        line-height: 32px
+        display: inline-block
+
+    &__btn
+        margin-left: 0
+    &__product-list
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        margin-left: -15px
+        margin-right: -15px
+    &__product
+        margin: 15px
+    &__img
+        max-width: 320px
+        width: 100%
+        max-height: 300px
+        margin-bottom: 15px
+/* new parfume */
+.parfume
+
+    &__inner
+        background: #DACEC2
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+
+    &__text
+        padding: 40px 0
+        width: 100%
+    p
+        line-height: 1em
+        &:first-child
+            font-size: 40px
+            margin-bottom: 30px
+        &:last-child
+            font-size: 24px
+        .large
+            font-size: 60px
+        .big
+            font-size: 36px
+            line-height: 1.2em
+    &__img
+        max-width: 665px
+        max-height: 540px
+        line-height: 0
+
+/* products in use */
+.in-use
+    &__list
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-wrap: wrap
+        line-height: 0
+
+    &__product
+        max-width: 459px
+        &:nth-child(2)
+            height: 539px
+            max-width: 432px
+            margin: 30px 0
+
+/* footer */
+.footer
+    font-family: "Archivo", sans-serif
+    background: $mauve
+    color: $white
+    &__top
+        padding: 15px
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        align-items: flex-start
+    &__col
+        font-size: 20px
+        line-height: 22px
+        padding: 15px 0
+        padding-right: 30px
+        display: inline-block
+        vertical-align: top
+    &__title
+        text-transform: uppercase
+        margin-bottom: 15px
+    &__menu
+        li:not(:last-child)
+            margin-bottom: 15px
+    .footer__social
+        margin: 20px auto
+        a
+            font-size: 24px
+            margin: 10px
+    &__copyright
+        border-top: 2px solid rgba($white, 0.5)
+        text-align: center
+        padding: 35px 15px
+
+/* sale */
+/* sale */

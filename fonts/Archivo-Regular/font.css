@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Archivo';
+    src: local('Archivo Regular'), local('Archivo-Regular'),
+        url('Archivo-Regular.woff2') format('woff2'),
+        url('Archivo-Regular.woff') format('woff'),
+        url('Archivo-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
