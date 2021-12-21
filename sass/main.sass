@@ -34,6 +34,9 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration
     display: none
 
+::placeholder
+    color: inherit
+    opacity: 0.8
 ul li, ol li
     list-style: none
 
@@ -69,7 +72,7 @@ h2
             position: absolute
             top: 0
             left: 0
-            box-shadow: 0px 4px 4px rgba($black, 0.25)
+            box-shadow: $shadow
     &--small
         min-width: 80px
         font-size: 16px
@@ -88,7 +91,7 @@ h2
     visibility: hidden
     line-height: 0
 .container
-    max-width: 1200px
+    max-width: 1230px
     width: 100%
     padding: 0 15px
     margin: 0 auto
@@ -188,28 +191,38 @@ section,
         &:hover
 
             color: $mauve
-
 /* advantages */
 .adv
     $padding: 40px
     padding: 0
-    &__slider
-        height: $padding + 300px
-        padding-bottom: $padding
     .container
         padding: 0
-    &__slide,
-    &__slide:nth-child(1)
-        background: url(../pics/s1/slide_1.png) center/cover no-repeat
+    &__slider
+        min-height: $height
+        height: 100%
+        padding-bottom: $padding
+        display: flex
+        .swiper-wrapper
+            height: auto
     &__slide
-        &::before
-            content: ""
-            background: rgba($beige, 0.7)
-            position: absolute
-            top: 0
-            left: 0
-            bottom: 0
-            right: 0
+
+    &__inner
+        text-align: center
+        color: $mauve
+        font-size: 48px
+        line-height: 56px
+        .bigger
+            font-size: 64px
+            line-height: 75px
+    &__img
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+    &__text
+        padding: 50px 0
+        background: rgba($beige, 0.7)
         &::after
             content: ""
             width: 40px
@@ -219,14 +232,10 @@ section,
             right: 15px
             bottom: 15px
 
-    &__inner
-        text-align: center
-        padding: 20px 0
-
 .swiper-pagination-bullet
     background-color: $mauve
 .swiper-pagination-bullet-active
-    box-shadow: 0px 4px 4px rgba($black, 0.25)
+    box-shadow: $shadow
 
 /* product and sale */
 .product
@@ -241,7 +250,7 @@ section,
         max-width: 350px
         width: 100%
         margin: 15px
-        box-shadow: 0px 4px 4px rgba($black, 0.25)
+        box-shadow: $shadow
     &__banner
         position: absolute
         top: 0
@@ -331,21 +340,37 @@ section,
 
 /* new product */
 .new
-    &__girl,
-    &__product
+    &__inner
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: stretch
+        overflow: hidden
+    &__girl
         display: none
+        flex: 420px 0 1
+        height: 500px
+    &__product
+        flex: 560px 0 1
+        height: $height
+        max-width: $width
     &__text
         background: $desert
-        width: 100%
-        padding: 40px 15px 30px
+        padding: 30px 15px
+        flex: $width 0 1
+        overflow: hidden
         p
-            font-size: 35px
-            line-height: 48px
+            line-height: 1.15em
+            font-size: 43px
             color: rgba($black-light, 0.8)
             margin: 0 auto
+        .bigger
+            line-height: 1.15em
+            font-size: 53px
+
     &__btn
         margin-top: 15px
-        text-shadow: 0px 4px 4px rgba($black, 0.25)
+        text-shadow: $shadow
 /* gift */
 .gift
     &__list
@@ -355,8 +380,8 @@ section,
         background: $desert
         overflow: hidden
         margin: 0 auto 20px
-        box-shadow: 0px 4px 4px rgba($black, 0.25)
-        max-width: 590px
+        box-shadow: $shadow
+        max-width: $width
         width: 100%
         &:first-child
             display: flex
@@ -367,7 +392,7 @@ section,
             padding: 20px 15px
             background: url(../pics/s4/gift_bg.png) center bottom/cover no-repeat
     &__collection
-        max-height: 320px
+        max-height: $height
         width: 100%
     &__text
         background: $white
@@ -401,7 +426,7 @@ section,
     &__inner
         display: flex
         flex-wrap: wrap
-        justify-content: space-between
+        justify-content: center
         align-items: center
         &::before
             content: ""
@@ -415,7 +440,7 @@ section,
     &__points
         font-size: 20px
         line-height: 25px
-        margin-bottom: 30px
+        margin: 0 auto 30px
         p
             margin: 25px 0 40px
     &__formula
@@ -451,7 +476,7 @@ section,
 
     &__text
         padding: 40px 0
-        width: 100%
+        margin: auto
     p
         line-height: 1em
         &:first-child
@@ -465,8 +490,7 @@ section,
             font-size: 36px
             line-height: 1.2em
     &__img
-        max-width: 665px
-        max-height: 540px
+        max-width: $width
         line-height: 0
 
 /* products in use */
@@ -479,11 +503,11 @@ section,
         line-height: 0
 
     &__product
-        max-width: 459px
+        max-width: $width
+        margin: 10px 0
         &:nth-child(2)
-            height: 539px
-            max-width: 432px
-            margin: 30px 0
+            max-width: $width - 28px
+            margin: 30px 15px
 
 /* footer */
 .footer
@@ -509,7 +533,7 @@ section,
     &__menu
         li:not(:last-child)
             margin-bottom: 15px
-    .footer__social
+    &__social
         margin: 20px auto
         a
             font-size: 24px
@@ -519,5 +543,20 @@ section,
         text-align: center
         padding: 35px 15px
 
-/* sale */
-/* sale */
+/* chat */
+.chat
+    cursor: pointer
+    color: $white
+    border-radius: 50%
+    display: flex
+    justify-content: center
+    align-items: center
+    background: $mauve
+    position: fixed
+    bottom: 100px
+    right: 35px
+    box-shadow: $shadow
+    z-index: 2
+    font-size: 25px
+    width: 50px
+    height: 50px

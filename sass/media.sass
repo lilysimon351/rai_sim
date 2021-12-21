@@ -1,0 +1,243 @@
+@import vars
+@media screen and ( min-width: 920px )
+    .home-page
+        padding-bottom: 0
+    /* header */
+    .header
+        padding: 15px
+    .form
+        max-width: 438px
+        width: 100%
+        margin: 20px auto
+        .input--search,
+        &__input
+            background: none
+            border: none
+            border-radius: 0
+            border-bottom: 1px solid $white
+            padding: 7px
+            padding-right: 45px
+            color: $white
+            &:focus
+                border-bottom-color: rgba($white, 0.5)
+                box-shadow: none
+        &__submit
+            color: $white
+            right: 15px
+            left: unset
+            top: 0
+    .notif
+        order: 1
+
+    /* advantages */
+    .adv
+        &__text
+            min-height: 500px
+
+    /* product and sale */
+    .product
+        &__img
+            height: 350px
+
+    /* new product */
+    .new
+        &__product
+            height: 500px
+        &__product, &__text
+            max-width: 50%
+            flex-grow: 1
+        &__text
+            padding: 15px
+            p
+                font-size: 64px
+            .bigger
+                font-size: 72px
+
+    /* gift */
+    .gift
+        &__list
+            justify-content: space-between
+        &__item
+            max-width: 580px
+        &__item:first-child
+            flex-wrap: nowrap
+            justify-content: space-between
+        &__collection
+            width: 280px
+            flex-shrink: 0
+        &__text
+            max-width: 264px
+            flex-shrink: 0
+
+    /* products in use */
+    .in-use
+        &__product
+            max-width: $width - 28px
+            height: 540px
+            width: 100%
+
+@media screen and ( min-width: 991px  )
+    /* header */
+    .logo
+        margin: auto
+    .nav
+        background: $desert
+        width: 100%
+        padding: 0 15px
+        color: $black
+        display: flex
+        align-items: center
+        justify-content: center
+        position: absolute
+        top: 100%
+        left: 0
+        z-index: 2
+        width: 100%
+        height: unset
+        a
+            display: block
+            padding: 7px
+        &__menu
+            display: flex
+            &-item
+                width: max-content
+                margin: 10px
+                font-size: 18px
+                line-height: 21px
+        &__icon
+            margin-right: 20px
+            display: block
+    .nav-list
+        color: $white
+        font-size: 20px
+        line-height: 24px
+        display: flex
+        gap: 35px
+        z-index: 10
+        background: none
+        box-shadow: none
+        position: relative
+        width: 80%
+        margin: auto
+        a
+            padding: 10px 0
+        i
+            font-size: 24px
+        &__item
+            transition: $duration
+            width: calc(100% / 4)
+            &:first-child,
+            &:last-child
+                display: none
+            &:nth-child(2)
+                display: block
+            &-active,
+            &:hover
+                color: $white
+                opacity: 0.6
+    .notif
+        display: none
+    /* advantages */
+    .adv
+        &__inner
+            display: flex
+            align-items: stretch
+            justify-content: space-between
+        &__img
+            position: relative
+            height: auto
+            width: 60%
+        &__text
+            padding: 100px 10px 30px
+            img
+                height: unset
+    /* advantages */
+    .footer
+        &__top
+            padding: 30px 20px 55px 0
+            flex-wrap: nowrap
+        &__social
+            margin: 20px 0
+        &__menu-list
+            display: flex
+            width: calc( 100% - 320px )
+        &__col
+            max-width: calc( 100% / 3 )
+            width: 100%
+            padding: 15px 6%
+            &:nth-child(2)
+                padding-bottom: 90px
+                border-left: 2px solid rgba($white, 0.25)
+                border-right: 2px solid rgba($white, 0.25)
+            &:last-child
+                padding-right: 0
+        &__social a
+            font-size: 36px
+    /* chat */
+    .chat
+        font-size: 50px
+        width: 100px
+        height: 100px
+@media screen and ( min-width: 1200px  )
+    /* header */
+    .nav
+        &__menu-item
+            margin-left: 15px
+            margin-right: 15px
+    .nav-list
+        width: unset
+        &__item
+            width: unset
+
+    /* new product */
+    .new
+        &__inner
+            flex-wrap: nowrap
+        &__girl
+            display: block
+        &__product, &__text
+            max-width: unset
+        &__text
+            flex-shrink: 0
+        &__btn
+            position: absolute
+            right: 6%
+
+    /* gift */
+    .gift
+        &__item
+            max-width: 49%
+            margin: 0
+
+    /* free */
+    .free
+        &__inner
+            justify-content: space-between
+        &__points
+            margin: 0
+            margin-right: 30px
+    /* new parfume */
+    .parfume
+        &__inner
+            align-items: stretch
+        &__img
+            max-width: 660px
+        p
+            line-height: 1em
+            &:first-child
+                font-size: 96px
+                margin-bottom: 30px
+            .large
+                font-size: 144px
+
+    /* products in use */
+    .in-use
+        padding-bottom: 100px
+        &__list
+            flex-wrap: nowrap
+        &__product
+            max-width: 459px
+            height: unset
+            width: 100%
+            &:nth-child(2)
+                margin: 30px
